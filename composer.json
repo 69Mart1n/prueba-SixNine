@@ -1,0 +1,12 @@
+{
+  "name": "sixnine/sgrsi",
+  "description": "Sistema de gestión de recursos, soporte e incidencias de UTU",
+  "type": "project",
+  "require": {
+    "php": ">=8.0",
+    "phpmailer/phpmailer": "^6.9"
+  },
+  "config": {
+    "sort-packages": true
+  }
+}

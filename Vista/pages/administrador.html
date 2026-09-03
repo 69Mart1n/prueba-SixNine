@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin / Coordinador - SGRSI</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../style/styles.css?v=22">
+</head>
+<body data-roles="administrador" data-primary-role="administrador" data-dashboard>
+  <div class="wrapper">
+    <nav id="sidebar">
+      <div class="sidebar-header"><h3><i class="bi bi-hdd-stack-fill"></i> SGRSI</h3></div>
+      <ul id="menuRol" class="list-unstyled components" data-active="inicio"></ul>
+      <ul class="list-unstyled CTAs"><li><a href="#" id="btnSalir" class="btn btn-danger"><i class="bi bi-box-arrow-left"></i> Salir</a></li></ul>
+    </nav>
+
+    <div id="content" class="dashboard-content">
+      <nav class="navbar dashboard-topbar sticky-top">
+        <div class="container-fluid px-0">
+          <button type="button" id="sidebarCollapse" class="btn btn-primary" title="Abrir menú">
+            <i class="bi bi-list"></i><span class="d-none d-md-inline ms-1">Menú</span>
+          </button>
+          <div class="panel-user">
+            <span class="panel-user-avatar"><i class="bi bi-person-fill"></i></span>
+            <span class="panel-user-copy"><strong id="nombreUsuarioPanel">Usuario</strong><small id="rolUsuarioPanel">Admin / Coordinador</small></span>
+          </div>
+        </div>
+      </nav>
+
+      <main class="container-fluid dashboard-page px-0">
+        <header class="dashboard-welcome">
+          <div>
+            <p class="dashboard-eyebrow">Panel de control</p>
+            <h1>Administración y coordinación</h1>
+            <p>Visión general de usuarios, recursos y actividad operativa del sistema.</p>
+          </div>
+          <div class="dashboard-welcome-meta">
+            <span id="fechaPanel" class="dashboard-date"></span>
+          </div>
+        </header>
+
+        <section class="dashboard-section" aria-labelledby="resumenAdmin">
+          <div class="dashboard-section-heading"><div><p>Resumen</p><h2 id="resumenAdmin">Indicadores principales</h2></div><a href="reporte.html">Ver reportes <i class="bi bi-arrow-right"></i></a></div>
+          <div class="row g-3">
+            <div class="col-sm-6 col-xl-3"><div class="dashboard-metric h-100"><span class="dashboard-metric-icon tone-blue"><i class="bi bi-people"></i></span><div><span>Usuarios activos</span><strong data-dashboard-key="usuarios_activos">0</strong><small data-dashboard-summary="usuarios_pendientes" data-empty="Sin aprobaciones pendientes" data-one="1 aprobación pendiente" data-many="{n} aprobaciones pendientes" data-alert="true">Sin pendientes</small></div></div></div>
+            <div class="col-sm-6 col-xl-3"><div class="dashboard-metric h-100"><span class="dashboard-metric-icon tone-red"><i class="bi bi-ticket-detailed"></i></span><div><span>Incidencias abiertas</span><strong data-dashboard-key="incidencias_abiertas">0</strong><small data-dashboard-summary="incidencias_abiertas" data-empty="Operación al día" data-one="1 requiere seguimiento" data-many="{n} requieren seguimiento" data-alert="true">Operación al día</small></div></div></div>
+            <div class="col-sm-6 col-xl-3"><div class="dashboard-metric h-100"><span class="dashboard-metric-icon tone-gold"><i class="bi bi-box-arrow-up-right"></i></span><div><span>Préstamos activos</span><strong data-dashboard-key="prestamos_activos">0</strong><small data-dashboard-summary="prestamos_atrasados" data-empty="Sin vencimientos" data-one="1 préstamo atrasado" data-many="{n} préstamos atrasados" data-alert="true">Sin vencimientos</small></div></div></div>
+            <div class="col-sm-6 col-xl-3"><div class="dashboard-metric h-100"><span class="dashboard-metric-icon tone-green"><i class="bi bi-pc-display"></i></span><div><span>Equipos disponibles</span><strong data-dashboard-key="equipos_disponibles">0</strong><small><span data-dashboard-key="laboratorios_disponibles">0</span> laboratorios disponibles</small></div></div></div>
+          </div>
+        </section>
+
+        <section class="dashboard-section" aria-labelledby="accionesAdmin">
+          <div class="dashboard-section-heading"><div><p>Gestión</p><h2 id="accionesAdmin">Acciones principales</h2></div></div>
+          <div class="dashboard-actions-grid">
+            <a class="dashboard-action" href="usuarios.html"><span class="dashboard-action-icon"><i class="bi bi-people-fill"></i></span><span><strong>Usuarios y roles</strong><small>Aprobar cuentas y permisos</small></span><i class="bi bi-arrow-right"></i></a>
+            <a class="dashboard-action" href="incidencias.html"><span class="dashboard-action-icon"><i class="bi bi-ticket-detailed-fill"></i></span><span><strong>Incidencias</strong><small>Supervisar tickets abiertos</small></span><i class="bi bi-arrow-right"></i></a>
+            <a class="dashboard-action" href="prestamos-gestion.html"><span class="dashboard-action-icon"><i class="bi bi-box-arrow-up-right"></i></span><span><strong>Préstamos</strong><small>Controlar entregas y atrasos</small></span><i class="bi bi-arrow-right"></i></a>
+            <a class="dashboard-action" href="laboratorio.html"><span class="dashboard-action-icon"><i class="bi bi-display"></i></span><span><strong>Laboratorios</strong><small>Disponibilidad y solicitudes</small></span><i class="bi bi-arrow-right"></i></a>
+            <a class="dashboard-action" href="equipo.html"><span class="dashboard-action-icon"><i class="bi bi-pc-display"></i></span><span><strong>Equipos</strong><small>Inventario y estado técnico</small></span><i class="bi bi-arrow-right"></i></a>
+            <a class="dashboard-action" href="blacklist.html"><span class="dashboard-action-icon"><i class="bi bi-person-fill-slash"></i></span><span><strong>Black list</strong><small>Revisar préstamos vencidos</small></span><i class="bi bi-arrow-right"></i></a>
+          </div>
+        </section>
+
+        <section class="row g-4 dashboard-section">
+          <div class="col-xl-7">
+            <section class="dashboard-data-panel h-100">
+              <div class="dashboard-panel-heading"><div><p>Operación</p><h2>Estado del sistema</h2></div><i class="bi bi-activity"></i></div>
+              <div class="dashboard-data-list">
+                <a href="incidencias.html"><span class="data-list-icon tone-red"><i class="bi bi-exclamation-circle"></i></span><span><strong>Incidencias sin resolver</strong><small>Tickets pendientes o en proceso</small></span><b data-dashboard-key="incidencias_abiertas">0</b></a>
+                <a href="incidencias.html"><span class="data-list-icon tone-green"><i class="bi bi-check-circle"></i></span><span><strong>Incidencias resueltas</strong><small>Historial de resoluciones</small></span><b data-dashboard-key="incidencias_resueltas">0</b></a>
+                <a href="laboratorio.html"><span class="data-list-icon tone-blue"><i class="bi bi-display"></i></span><span><strong>Laboratorios disponibles</strong><small>Espacios habilitados</small></span><b data-dashboard-key="laboratorios_disponibles">0</b></a>
+              </div>
+            </section>
+          </div>
+          <div class="col-xl-5">
+            <section class="dashboard-data-panel h-100">
+              <div class="dashboard-panel-heading"><div><p>Prioridad</p><h2>Atención requerida</h2></div><i class="bi bi-bell"></i></div>
+              <div class="dashboard-alert-list">
+                <a href="usuarios.html"><span><i class="bi bi-person-check"></i> Usuarios pendientes</span><strong data-dashboard-key="usuarios_pendientes">0</strong></a>
+                <a href="prestamos-gestion.html"><span><i class="bi bi-clock-history"></i> Préstamos atrasados</span><strong data-dashboard-key="prestamos_atrasados">0</strong></a>
+                <a href="blacklist.html"><span><i class="bi bi-person-fill-slash"></i> Registros en black list</span><strong data-dashboard-key="blacklist_activos">0</strong></a>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section class="dashboard-section combined-role-section" data-requires-role="solicitante" aria-labelledby="accionesSolicitanteAdmin" hidden>
+          <div class="combined-role-heading">
+            <span class="combined-role-icon"><i class="bi bi-person-workspace"></i></span>
+            <div><p>Rol adicional</p><h2 id="accionesSolicitanteAdmin">Funciones como Solicitante / Docente</h2><span>Gestiones personales disponibles sin abandonar el panel de coordinación.</span></div>
+          </div>
+          <div class="dashboard-actions-grid requester-actions">
+            <a class="dashboard-action" href="ticket-incidencia.html"><span class="dashboard-action-icon tone-red"><i class="bi bi-ticket-detailed"></i></span><span><strong>Reportar incidencia</strong><small>Registrar una falla propia</small></span><i class="bi bi-arrow-right"></i></a>
+            <a class="dashboard-action" href="prestamo.html"><span class="dashboard-action-icon tone-gold"><i class="bi bi-box-arrow-up-right"></i></span><span><strong>Solicitar préstamo</strong><small>Pedir un recurso tecnológico</small></span><i class="bi bi-arrow-right"></i></a>
+            <a class="dashboard-action" href="solicitud-servicio.html"><span class="dashboard-action-icon tone-blue"><i class="bi bi-display"></i></span><span><strong>Solicitar laboratorio</strong><small>Reserva, software o soporte</small></span><i class="bi bi-arrow-right"></i></a>
+            <a class="dashboard-action" href="uso-sala.html"><span class="dashboard-action-icon tone-green"><i class="bi bi-clipboard-data"></i></span><span><strong>Registrar uso de sala</strong><small>Guardar grupo, horario y equipos</small></span><i class="bi bi-arrow-right"></i></a>
+            <a class="dashboard-action" href="mis-solicitudes.html"><span class="dashboard-action-icon tone-violet"><i class="bi bi-folder2-open"></i></span><span><strong>Mis solicitudes</strong><small>Consultar actividad personal</small></span><i class="bi bi-arrow-right"></i></a>
+          </div>
+          <div class="personal-summary-strip" aria-label="Resumen personal">
+            <span><small>Solicitudes abiertas</small><strong data-dashboard-key="mis_solicitudes_abiertas">0</strong></span>
+            <span><small>Incidencias abiertas</small><strong data-dashboard-key="mis_incidencias_abiertas">0</strong></span>
+            <span><small>Préstamos activos</small><strong data-dashboard-key="mis_prestamos_activos">0</strong></span>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="../../Controlador/controlador.js?v=24"></script>
+</body>
+</html>

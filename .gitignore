@@ -1,1 +1,12 @@
 .env
+database/
+*.sql
+!database/
+!database/sgrsi_demo_xampp.sql
+!database/migrations/
+!database/migrations/*.sql
+vendor/
+composer.phar
+__pycache__/
+*.pyc
+~$*
