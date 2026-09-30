@@ -1,5 +1,32 @@
 Options -Indexes
 
-<FilesMatch "^\.">
+# Todos los archivos de la aplicacion se sirven en UTF-8.
+AddDefaultCharset UTF-8
+AddType "text/html; charset=UTF-8" .html
+AddType "text/css; charset=UTF-8" .css
+AddType "application/javascript; charset=UTF-8" .js
+
+# Archivos internos y copias de seguridad: nunca descargables.
+<FilesMatch "(?i)(^\.|^(?:README|composer|package)(?:\.|$)|\.(?:sql|log|ini|bak|backup|old|key|pem|p12|pfx|crt|cer)$|~$)">
     Require all denied
 </FilesMatch>
+
+RewriteEngine On
+RewriteRule (^|/)\.[^/]+(/|$) - [F]
+RewriteRule ^(database|integraciones|config|logs?|backups?|scripts?)(/|$) - [F,NC]
+RewriteRule ^(Modelo/.*\.php|Controlador/(?!api\.php(/|$)).*\.php)(/|$) - [F,NC]
+
+# Se aplica también a HTML, CSS, JS y respuestas de la API.
+Header onsuccess unset X-Content-Type-Options
+Header onsuccess unset X-Frame-Options
+Header onsuccess unset Referrer-Policy
+Header onsuccess unset Permissions-Policy
+Header onsuccess unset Content-Security-Policy
+Header onsuccess unset Strict-Transport-Security
+Header always set X-Content-Type-Options "nosniff"
+Header always set X-Frame-Options "DENY"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+# Bootstrap puede fijar estilos de componentes en línea; script-src no usa unsafe-inline ni unsafe-eval.
+Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data: blob:; connect-src 'self'"
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" "expr=%{HTTPS} == 'on'"

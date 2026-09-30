@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Categorías - SGRSI</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="../style/styles.css?v=44" />
+  </head>
+  <body data-roles="administrador tecnico">
+    <div class="wrapper">
+      <nav id="sidebar">
+        <div class="sidebar-header">
+          <h3><i class="bi bi-hdd-stack-fill"></i> SGRSI</h3>
+        </div>
+        <ul
+          id="menuRol"
+          class="list-unstyled components"
+          data-active="categorias"
+        ></ul>
+        <ul class="list-unstyled CTAs">
+          <li><a href="#" id="btnSalir">Cerrar sesión</a></li>
+        </ul>
+      </nav>
+      <div id="content">
+        <nav class="navbar navbar-light bg-light sticky-top">
+          <div class="container-fluid">
+            <button id="sidebarCollapse" class="btn btn-primary">
+              <i class="bi bi-list"></i> Menú
+            </button>
+          </div>
+        </nav>
+        <main class="container-fluid">
+          <header class="page-header">
+            <h1 class="h2">Categorías de incidencia</h1>
+            <p class="text-muted mb-0">
+              Clasificación disponible para los formularios de reporte.
+            </p>
+          </header>
+          <div id="mensaje"></div>
+          <div class="row g-4">
+            <div class="col-lg-4">
+              <form id="formCategoria" class="card">
+                <div class="card-header">
+                  <h2 class="h5 mb-0">Nueva categoría</h2>
+                </div>
+                <div class="card-body">
+                  <label class="form-label">Nombre</label
+                  ><input name="nombre" class="form-control" required /><label
+                    class="form-label mt-3"
+                    >Descripción</label
+                  ><textarea
+                    name="descripcion"
+                    class="form-control"
+                    rows="3"
+                  ></textarea
+                  ><button class="btn btn-primary mt-3">
+                    <i class="bi bi-plus-lg"></i> Agregar
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div class="col-lg-8">
+              <section class="card">
+                <div class="table-responsive">
+                  <table class="table table-hover align-middle mb-0">
+                    <thead>
+                      <tr>
+                        <th>Categoría</th>
+                        <th>Descripción</th>
+                        <th>Estado</th>
+                        <th>Acción</th>
+                      </tr>
+                    </thead>
+                    <tbody id="tablaCategorias"></tbody>
+                  </table>
+                </div>
+              </section>
+            </div>
+          </div>
+
+          <section id="gestionEspaciosAdmin" class="mt-5" hidden>
+            <header class="page-header pt-0">
+              <h2 class="h3">Espacios del instituto</h2>
+              <p class="text-muted mb-0">
+                CRUD simple de salones, talleres y laboratorios. La baja es lógica para conservar el historial.
+              </p>
+            </header>
+            <div class="row g-4">
+              <div class="col-lg-4">
+                <form id="formEspacio" class="card">
+                  <input type="hidden" name="id_espacio" />
+                  <div class="card-header">
+                    <h3 id="tituloFormEspacio" class="h5 mb-0">Nuevo espacio</h3>
+                  </div>
+                  <div class="card-body">
+                    <label class="form-label" for="tipoEspacio">Tipo</label>
+                    <select id="tipoEspacio" name="tipo" class="form-select" required>
+                      <option value="laboratorio">Laboratorio</option>
+                      <option value="taller">Taller</option>
+                      <option value="salon">Salón</option>
+                    </select>
+
+                    <label class="form-label mt-3" for="nombreEspacio">Nombre</label>
+                    <input id="nombreEspacio" name="nombre" class="form-control" maxlength="100" required />
+
+                    <label class="form-label mt-3" for="ubicacionEspacio">Ubicación</label>
+                    <input id="ubicacionEspacio" name="ubicacion" class="form-control" maxlength="150" required />
+
+                    <label class="form-label mt-3" for="capacidadEspacio">Capacidad</label>
+                    <input id="capacidadEspacio" name="capacidad" class="form-control" type="number" min="1" max="999" />
+
+                    <label class="form-label mt-3" for="estadoEspacio">Estado</label>
+                    <select id="estadoEspacio" name="estado" class="form-select" required>
+                      <option value="disponible">Disponible</option>
+                      <option value="ocupado">Ocupado</option>
+                      <option value="mantenimiento">Mantenimiento</option>
+                      <option value="inactivo">Inactivo</option>
+                    </select>
+
+                    <div class="d-flex gap-2 mt-3">
+                      <button class="btn btn-primary" type="submit">
+                        <i class="bi bi-save"></i> Guardar
+                      </button>
+                      <button id="btnCancelarEdicionEspacio" class="btn btn-outline-secondary" type="button">
+                        Limpiar
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="col-lg-8">
+                <section class="card">
+                  <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Espacio</th>
+                          <th>Ubicación</th>
+                          <th>Capacidad</th>
+                          <th>Estado</th>
+                          <th>Acciones</th>
+                        </tr>
+                      </thead>
+                      <tbody id="tablaEspaciosGestion"></tbody>
+                    </table>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="../../Controlador/controlador.js?v=46"></script>
+  </body>
+</html>

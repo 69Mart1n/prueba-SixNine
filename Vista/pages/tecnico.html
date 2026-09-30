@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Técnico - SGRSI</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="../style/styles.css?v=44" />
+  </head>
+  <body data-roles="tecnico" data-primary-role="tecnico" data-dashboard>
+    <div class="wrapper">
+      <nav id="sidebar">
+        <div class="sidebar-header">
+          <h3><i class="bi bi-hdd-stack-fill"></i> SGRSI</h3>
+        </div>
+        <ul
+          id="menuRol"
+          class="list-unstyled components"
+          data-active="inicio"
+        ></ul>
+        <ul class="list-unstyled CTAs">
+          <li>
+            <a href="#" id="btnSalir" class="btn btn-danger"
+              ><i class="bi bi-box-arrow-left"></i> Salir</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <div id="content" class="dashboard-content">
+        <nav class="navbar dashboard-topbar sticky-top">
+          <div class="container-fluid px-0">
+            <button
+              type="button"
+              id="sidebarCollapse"
+              class="btn btn-primary"
+              title="Abrir menú"
+            >
+              <i class="bi bi-list"></i
+              ><span class="d-none d-md-inline ms-1">Menú</span>
+            </button>
+            <div class="panel-user">
+              <span class="panel-user-avatar"
+                ><i class="bi bi-person-fill"></i></span
+              ><span class="panel-user-copy"
+                ><strong id="nombreUsuarioPanel">Usuario</strong
+                ><small id="rolUsuarioPanel">Técnico</small></span
+              >
+            </div>
+          </div>
+        </nav>
+
+        <main class="container-fluid dashboard-page px-0">
+          <header class="dashboard-welcome">
+            <div>
+              <p class="dashboard-eyebrow">Panel operativo</p>
+              <h1>Soporte técnico</h1>
+              <p>
+                Seguimiento de incidencias, préstamos y recursos que requieren
+                intervención.
+              </p>
+            </div>
+            <div class="dashboard-welcome-meta">
+              <span id="fechaPanel" class="dashboard-date"></span>
+            </div>
+          </header>
+
+          <section class="dashboard-section" aria-labelledby="resumenTecnico">
+            <div class="dashboard-section-heading">
+              <div>
+                <p>Resumen</p>
+                <h2 id="resumenTecnico">Cola de trabajo</h2>
+              </div>
+              <a href="incidencias.html"
+                >Ver incidencias <i class="bi bi-arrow-right"></i
+              ></a>
+            </div>
+            <div class="row g-3">
+              <div class="col-sm-6 col-xl-3">
+                <div class="dashboard-metric h-100">
+                  <span class="dashboard-metric-icon tone-red"
+                    ><i class="bi bi-ticket-detailed"></i
+                  ></span>
+                  <div>
+                    <span>Incidencias abiertas</span
+                    ><strong data-dashboard-key="incidencias_abiertas">0</strong
+                    ><small
+                      data-dashboard-summary="incidencias_abiertas"
+                      data-empty="Sin tickets pendientes"
+                      data-one="1 ticket por atender"
+                      data-many="{n} tickets por atender"
+                      data-alert="true"
+                      >Sin pendientes</small
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="dashboard-metric h-100">
+                  <span class="dashboard-metric-icon tone-blue"
+                    ><i class="bi bi-person-check"></i
+                  ></span>
+                  <div>
+                    <span>Asignadas a mí</span
+                    ><strong data-dashboard-key="incidencias_asignadas"
+                      >0</strong
+                    ><small>Incidencias en proceso</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="dashboard-metric h-100">
+                  <span class="dashboard-metric-icon tone-gold"
+                    ><i class="bi bi-box-arrow-up-right"></i
+                  ></span>
+                  <div>
+                    <span>Préstamos pendientes</span
+                    ><strong data-dashboard-key="prestamos_pendientes">0</strong
+                    ><small
+                      data-dashboard-summary="prestamos_pendientes"
+                      data-empty="Sin entregas pendientes"
+                      data-one="1 requiere gestión"
+                      data-many="{n} requieren gestión"
+                      >Sin pendientes</small
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="dashboard-metric h-100">
+                  <span class="dashboard-metric-icon tone-violet"
+                    ><i class="bi bi-wrench-adjustable"></i
+                  ></span>
+                  <div>
+                    <span>Equipos en revisión</span
+                    ><strong data-dashboard-key="equipos_revision">0</strong
+                    ><small>Recursos en reparación</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="dashboard-section" aria-labelledby="accionesTecnico">
+            <div class="dashboard-section-heading">
+              <div>
+                <p>Operación</p>
+                <h2 id="accionesTecnico">Acciones principales</h2>
+              </div>
+            </div>
+            <div class="dashboard-actions-grid four-columns">
+              <a class="dashboard-action" href="incidencias.html"
+                ><span class="dashboard-action-icon"
+                  ><i class="bi bi-ticket-detailed-fill"></i></span
+                ><span
+                  ><strong>Gestionar incidencias</strong
+                  ><small>Aceptar, clasificar y resolver</small></span
+                ><i class="bi bi-arrow-right"></i
+              ></a>
+              <a class="dashboard-action" href="prestamos-gestion.html"
+                ><span class="dashboard-action-icon"
+                  ><i class="bi bi-box-arrow-up-right"></i></span
+                ><span
+                  ><strong>Gestionar préstamos</strong
+                  ><small>Entregas y devoluciones</small></span
+                ><i class="bi bi-arrow-right"></i
+              ></a>
+              <a class="dashboard-action" href="laboratorio.html"
+                ><span class="dashboard-action-icon"
+                  ><i class="bi bi-display"></i></span
+                ><span
+                  ><strong>Ver laboratorios</strong
+                  ><small>Solicitudes y disponibilidad</small></span
+                ><i class="bi bi-arrow-right"></i
+              ></a>
+              <a class="dashboard-action" href="equipo.html"
+                ><span class="dashboard-action-icon"
+                  ><i class="bi bi-pc-display"></i></span
+                ><span
+                  ><strong>Revisar equipos</strong
+                  ><small>Inventario y mantenimiento</small></span
+                ><i class="bi bi-arrow-right"></i
+              ></a>
+            </div>
+          </section>
+
+          <section class="row g-4 dashboard-section">
+            <div class="col-xl-7">
+              <section class="dashboard-data-panel h-100">
+                <div class="dashboard-panel-heading">
+                  <div>
+                    <p>Seguimiento</p>
+                    <h2>Trabajo pendiente</h2>
+                  </div>
+                  <i class="bi bi-list-check"></i>
+                </div>
+                <div class="dashboard-data-list">
+                  <a href="incidencias.html"
+                    ><span class="data-list-icon tone-red"
+                      ><i class="bi bi-exclamation-circle"></i></span
+                    ><span
+                      ><strong>Incidencias generales</strong
+                      ><small>Pendientes o en proceso</small></span
+                    ><b data-dashboard-key="incidencias_abiertas">0</b></a
+                  >
+                  <a href="laboratorio.html"
+                    ><span class="data-list-icon tone-gold"
+                      ><i class="bi bi-clipboard-check"></i></span
+                    ><span
+                      ><strong>Solicitudes aprobadas</strong
+                      ><small>Listas para ejecución técnica</small></span
+                    ><b data-dashboard-key="solicitudes_pendientes">0</b></a
+                  >
+                  <a href="equipo.html"
+                    ><span class="data-list-icon tone-violet"
+                      ><i class="bi bi-wrench-adjustable"></i></span
+                    ><span
+                      ><strong>Equipos en reparación</strong
+                      ><small>Requieren diagnóstico</small></span
+                    ><b data-dashboard-key="equipos_revision">0</b></a
+                  >
+                </div>
+              </section>
+            </div>
+            <div class="col-xl-5">
+              <section class="dashboard-data-panel h-100">
+                <div class="dashboard-panel-heading">
+                  <div>
+                    <p>Recursos</p>
+                    <h2>Disponibilidad</h2>
+                  </div>
+                  <i class="bi bi-display"></i>
+                </div>
+                <div class="dashboard-focus-value">
+                  <strong data-dashboard-key="laboratorios_disponibles"
+                    >0</strong
+                  ><span>Laboratorios disponibles</span>
+                  <p>Espacios habilitados para clases y solicitudes.</p>
+                  <a class="btn btn-outline-primary" href="laboratorio.html"
+                    >Consultar laboratorios</a
+                  >
+                </div>
+              </section>
+            </div>
+          </section>
+
+          <section
+            class="dashboard-section combined-role-section"
+            data-requires-role="solicitante"
+            aria-labelledby="accionesSolicitanteTecnico"
+            hidden
+          >
+            <div class="combined-role-heading">
+              <span class="combined-role-icon"
+                ><i class="bi bi-person-workspace"></i
+              ></span>
+              <div>
+                <p>Rol adicional</p>
+                <h2 id="accionesSolicitanteTecnico">
+                  Funciones como Solicitante / Docente
+                </h2>
+                <span
+                  >Gestiones personales disponibles sin abandonar el panel
+                  técnico.</span
+                >
+              </div>
+            </div>
+            <div class="dashboard-actions-grid requester-actions">
+              <a class="dashboard-action" href="ticket-incidencia.html"
+                ><span class="dashboard-action-icon tone-red"
+                  ><i class="bi bi-ticket-detailed"></i></span
+                ><span
+                  ><strong>Reportar incidencia</strong
+                  ><small>Registrar una falla propia</small></span
+                ><i class="bi bi-arrow-right"></i
+              ></a>
+              <a class="dashboard-action" href="prestamo.html"
+                ><span class="dashboard-action-icon tone-gold"
+                  ><i class="bi bi-box-arrow-up-right"></i></span
+                ><span
+                  ><strong>Solicitar préstamo</strong
+                  ><small>Pedir un recurso tecnológico</small></span
+                ><i class="bi bi-arrow-right"></i
+              ></a>
+              <a class="dashboard-action" href="solicitud-servicio.html"
+                ><span class="dashboard-action-icon tone-blue"
+                  ><i class="bi bi-display"></i></span
+                ><span
+                  ><strong>Solicitar laboratorio</strong
+                  ><small>Reserva, software o soporte</small></span
+                ><i class="bi bi-arrow-right"></i
+              ></a>
+              <a class="dashboard-action" href="uso-sala.html"
+                ><span class="dashboard-action-icon tone-green"
+                  ><i class="bi bi-clipboard-data"></i></span
+                ><span
+                  ><strong>Registrar uso de sala</strong
+                  ><small>Guardar grupo, horario y equipos</small></span
+                ><i class="bi bi-arrow-right"></i
+              ></a>
+              <a class="dashboard-action" href="mis-solicitudes.html"
+                ><span class="dashboard-action-icon tone-violet"
+                  ><i class="bi bi-folder2-open"></i></span
+                ><span
+                  ><strong>Mis solicitudes</strong
+                  ><small>Consultar actividad personal</small></span
+                ><i class="bi bi-arrow-right"></i
+              ></a>
+            </div>
+            <div class="personal-summary-strip" aria-label="Resumen personal">
+              <span
+                ><small>Solicitudes abiertas</small
+                ><strong data-dashboard-key="mis_solicitudes_abiertas"
+                  >0</strong
+                ></span
+              >
+              <span
+                ><small>Incidencias abiertas</small
+                ><strong data-dashboard-key="mis_incidencias_abiertas"
+                  >0</strong
+                ></span
+              >
+              <span
+                ><small>Préstamos activos</small
+                ><strong data-dashboard-key="mis_prestamos_activos"
+                  >0</strong
+                ></span
+              >
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="../../Controlador/controlador.js?v=46"></script>
+  </body>
+</html>
